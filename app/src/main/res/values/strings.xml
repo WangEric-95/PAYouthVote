@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Vote</string>
+    <string name="login_userID">please input your ID number</string>
+    <string name="login_pwd">please input your password</string>
+    <string name="login_forgot_pwd">forgot password</string>
+    <string name="login_registration">registration</string>
+</resources>
