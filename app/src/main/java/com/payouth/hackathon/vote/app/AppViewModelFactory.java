@@ -7,6 +7,8 @@ import com.payouth.hackathon.vote.data.DemoRepository;
 import com.payouth.hackathon.vote.ui.login.LoginActivityViewModel;
 import com.payouth.hackathon.vote.ui.login.LoginViewModel;
 import com.payouth.hackathon.vote.ui.network.NetWorkViewModel;
+import com.payouth.hackathon.vote.ui.register.RegisterFragment;
+import com.payouth.hackathon.vote.ui.register.RegisterFragmentViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -52,6 +54,8 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new LoginViewModel(mApplication, mRepository);
         } else if (modelClass.isAssignableFrom(LoginActivityViewModel.class)) {
             return (T) new LoginActivityViewModel(mApplication, mRepository);
+        } else if (modelClass.isAssignableFrom(RegisterFragmentViewModel.class)){
+            return (T) new RegisterFragmentViewModel(mApplication);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

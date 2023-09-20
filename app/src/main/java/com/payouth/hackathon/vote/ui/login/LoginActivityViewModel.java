@@ -1,6 +1,8 @@
 package com.payouth.hackathon.vote.ui.login;
 
 import android.app.Application;
+import android.content.Context;
+import android.content.SharedPreferences;
 
 import androidx.annotation.NonNull;
 
@@ -14,9 +16,6 @@ public class LoginActivityViewModel extends BaseViewModel<DemoRepository> {
         super(application, model);
     }
 
-    public void showSplashScreen() {
-
-    }
 
     @Override
     public void onDestroy() {

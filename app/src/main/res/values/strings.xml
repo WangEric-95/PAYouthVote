@@ -1,7 +1,10 @@
 <resources>
     <string name="app_name">Vote</string>
-    <string name="login_userID">please input your ID number</string>
-    <string name="login_pwd">please input your password</string>
+    <string name="login_userID">Please input your ID no</string>
+    <string name="login_name">Please input your name</string>
+    <string name="login_pwd">Please input your password</string>
     <string name="login_forgot_pwd">forgot password</string>
-    <string name="login_registration">registration</string>
+    <string name="login_registration">register</string>
+    <string name="login_user_name">Please input your name</string>
+    <string name="login_mail_address">Please input your mail address</string>
 </resources>

@@ -15,7 +15,17 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/container_fl"/>
+            android:id="@+id/container_fl">
+
+            <ImageView
+                android:id="@+id/splash_Image"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@mipmap/splash"
+                android:scaleType="fitStart"
+                android:visibility="gone"/>
+
+        </FrameLayout>
 
     </FrameLayout>
 </layout>

@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.KeyEvent;
+import android.view.View;
 
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
@@ -56,7 +57,7 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginActiv
     }
 
     private void showSplashScreen() {
-        binding.containerFl.setBackgroundResource(R.mipmap.splash);
+        binding.splashImage.setVisibility(View.VISIBLE);
         Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
@@ -64,6 +65,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginActiv
                 showLoginFragment();
             }
         }, 3000);
+
+        SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putBoolean("splash_committed",true);
+        editor.commit();
     }
 
     private void showLoginFragment() {
