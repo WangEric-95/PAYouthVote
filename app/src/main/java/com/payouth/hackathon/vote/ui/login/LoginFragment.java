@@ -48,7 +48,6 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginViewM
         return fragment;
     }
 
-
     @Override
     public void initViewObservable() {
         viewModel.uc.pSwitchEvent.observe(this, new Observer<Boolean>() {

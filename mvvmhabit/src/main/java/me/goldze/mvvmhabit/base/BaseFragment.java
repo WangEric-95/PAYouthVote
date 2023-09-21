@@ -146,7 +146,7 @@ public abstract class BaseFragment<V extends ViewDataBinding, VM extends BaseVie
         viewModel.getUC().getFinishEvent().observe(this, new Observer<Void>() {
             @Override
             public void onChanged(@Nullable Void v) {
-                getActivity().finish();
+                getActivity().getSupportFragmentManager().popBackStack();
             }
         });
         //关闭上一层

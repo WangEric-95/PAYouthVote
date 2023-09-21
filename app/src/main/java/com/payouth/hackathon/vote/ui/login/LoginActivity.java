@@ -47,13 +47,11 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginActiv
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (isFirstTimeLaunch()) {
             showSplashScreen();
         } else {
             showLoginFragment();
         }
-
     }
 
     private void showSplashScreen() {
@@ -87,13 +85,5 @@ public class LoginActivity extends BaseActivity<ActivityLoginBinding, LoginActiv
     private boolean isFirstTimeLaunch() {
         SharedPreferences sp = getPreferences(Context.MODE_PRIVATE);
         return !sp.contains("splash_committed");
-    }
-
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

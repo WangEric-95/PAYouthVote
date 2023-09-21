@@ -46,7 +46,6 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
     public LoginViewModel(@NonNull Application application, DemoRepository repository) {
         super(application, repository);
         userName.set(model.getUserName());
-//        password.set(model.getPassword());
     }
 
     public BindingCommand clearUserNameOnClickCommand = new BindingCommand(new BindingAction() {

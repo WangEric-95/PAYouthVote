@@ -9,8 +9,10 @@ import me.goldze.mvvmhabit.http.BaseResponse;
  * Created by goldze on 2019/3/26.
  */
 public interface HttpDataSource {
-    //模拟登录
+    //mock for login
     Observable<Object> login();
+    //mock for register
+    Observable<Object> register();
 
     //模拟上拉加载
     Observable<DemoEntity> loadMore();

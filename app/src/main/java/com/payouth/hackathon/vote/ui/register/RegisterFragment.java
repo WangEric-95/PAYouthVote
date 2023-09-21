@@ -5,19 +5,16 @@ import android.view.LayoutInflater;
 import android.view.ViewGroup;
 
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
+import androidx.lifecycle.ViewModelProviders;
 
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.databinding.FragmentRegisterBinding;
-import com.payouth.hackathon.vote.ui.login.LoginFragment;
+import com.payouth.hackathon.vote.app.AppViewModelFactory;
+import com.payouth.hackathon.vote.ui.login.LoginViewModel;
 
 import me.goldze.mvvmhabit.base.BaseFragment;
-import me.goldze.mvvmhabit.binding.command.BindingAction;
-import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
 public class RegisterFragment extends BaseFragment<FragmentRegisterBinding, RegisterFragmentViewModel> {
@@ -32,6 +29,12 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding, Regi
     @Override
     public int initContentView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         return R.layout.fragment_register;
+    }
+
+    @Override
+    public RegisterFragmentViewModel initViewModel() {
+        AppViewModelFactory factory = AppViewModelFactory.getInstance(getActivity().getApplication());
+        return ViewModelProviders.of(this, factory).get(RegisterFragmentViewModel.class);
     }
 
     @Override
@@ -50,11 +53,17 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding, Regi
                 getActivity().getSupportFragmentManager().popBackStack();
             }
         });
-    }
 
+        viewModel.uc.pBackButtonClickEvent.observe(this, new Observer<Boolean>() {
+            @Override
+            public void onChanged(Boolean aBoolean) {
+                getActivity().getSupportFragmentManager().popBackStack();
+            }
+        });
+    }
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void initData() {
+        super.initData();
+        viewModel.initToolbar();
     }
-
 }

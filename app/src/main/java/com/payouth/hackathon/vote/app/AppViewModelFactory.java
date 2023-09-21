@@ -55,7 +55,7 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
         } else if (modelClass.isAssignableFrom(LoginActivityViewModel.class)) {
             return (T) new LoginActivityViewModel(mApplication, mRepository);
         } else if (modelClass.isAssignableFrom(RegisterFragmentViewModel.class)){
-            return (T) new RegisterFragmentViewModel(mApplication);
+            return (T) new RegisterFragmentViewModel(mApplication, mRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

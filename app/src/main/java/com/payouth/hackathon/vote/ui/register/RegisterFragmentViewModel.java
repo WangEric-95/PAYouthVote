@@ -1,52 +1,96 @@
 package com.payouth.hackathon.vote.ui.register;
 
 import android.app.Application;
+import android.text.TextUtils;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.ObservableField;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.goldze.mvvmhabit.R;
 import com.payouth.hackathon.vote.data.DemoRepository;
-import com.payouth.hackathon.vote.ui.login.LoginFragment;
-import com.payouth.hackathon.vote.ui.login.LoginViewModel;
+import com.payouth.hackathon.vote.ui.base.viewmodel.ToolbarViewModel;
+import com.payouth.hackathon.vote.ui.tab_bar.activity.TabBarActivity;
 
-import me.goldze.mvvmhabit.base.BaseViewModel;
+import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 import me.goldze.mvvmhabit.binding.command.BindingAction;
 import me.goldze.mvvmhabit.binding.command.BindingCommand;
 import me.goldze.mvvmhabit.bus.event.SingleLiveEvent;
+import me.goldze.mvvmhabit.utils.RxUtils;
 import me.goldze.mvvmhabit.utils.ToastUtils;
 
-public class RegisterFragmentViewModel extends BaseViewModel<DemoRepository> {
+public class RegisterFragmentViewModel extends ToolbarViewModel<DemoRepository> {
 
 
     public ObservableField<String> userName = new ObservableField<>("");
 
     public ObservableField<String> password = new ObservableField<>("");
     public ObservableField<String> idno = new ObservableField<>("");
+    public ObservableField<String> mail = new ObservableField<>("");
 
-    public UIChangeObservable1 uc = new UIChangeObservable1();
 
-//    public RegisterFragmentViewModel(@NonNull Application application, DemoRepository model) {
-//        super(application, model);
-//    }
+    public UIChangeObservable uc = new UIChangeObservable();
+
+    public RegisterFragmentViewModel(@NonNull Application application, DemoRepository model) {
+        super(application, model);
+    }
     public RegisterFragmentViewModel(@NonNull Application application) {
         super(application);
     }
 
-    public class UIChangeObservable1 {
+    public class UIChangeObservable {
         public SingleLiveEvent<Boolean> pRegisterClickEvent = new SingleLiveEvent<>();
+
+        public SingleLiveEvent<Boolean> pBackButtonClickEvent = new SingleLiveEvent<>();
+
     }
 
     public BindingCommand registerOnClickCommand = new BindingCommand(new BindingAction() {
         @Override
         public void call() {
-            uc.pRegisterClickEvent.setValue(true);
+            register();
         }
     });
 
+    public void initToolbar() {
+        setRightTextVisible(View.GONE);
+    }
+
+    private void register() {
+        if (TextUtils.isEmpty(idno.get())) {
+            ToastUtils.showShort("Please input a ID card number！");
+            return;
+        }
+        if (TextUtils.isEmpty(password.get())) {
+            ToastUtils.showShort("Please input password！");
+            return;
+        }
+        if (TextUtils.isEmpty(mail.get())) {
+            ToastUtils.showShort("Please input a ID card number！");
+            return;
+        }
+        if (TextUtils.isEmpty(userName.get())) {
+            ToastUtils.showShort("Please input password！");
+            return;
+        }
+        addSubscribe(model.register()
+                .compose(RxUtils.schedulersTransformer())
+                .doOnSubscribe(new Consumer<Disposable>() {
+                    @Override
+                    public void accept(Disposable disposable) throws Exception {
+                        showDialog();
+                    }
+                })
+                .subscribe(new Consumer<Object>() {
+                    @Override
+                    public void accept(Object o) throws Exception {
+                        dismissDialog();
+                        ToastUtils.showLong("Register successfully you can do login now");
+                        model.saveUserName(userName.get());
+                        backOnClick.execute();
+                    }
+                }));
+    }
     @Override
     public void onDestroy() {
         super.onDestroy();

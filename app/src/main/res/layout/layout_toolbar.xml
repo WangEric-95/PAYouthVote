@@ -27,8 +27,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_centerVertical="true"
                 android:background="?selectableItemBackground"
-                android:padding="12dp"
                 android:src="@mipmap/back"
+                android:scaleType="fitStart"
+                android:paddingVertical="8dp"
                 binding:onClickCommand="@{toolbarViewModel.backOnClick}" />
 
             <TextView
@@ -75,7 +76,8 @@
 
             <View
                 style="@style/ViewLineStyle"
-                android:layout_alignParentBottom="true" />
+                android:layout_alignParentBottom="true"
+                android:visibility="gone"/>
         </RelativeLayout>
     </androidx.appcompat.widget.Toolbar>
 </layout>
