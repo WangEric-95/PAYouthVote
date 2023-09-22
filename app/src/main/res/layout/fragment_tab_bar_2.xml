@@ -16,7 +16,8 @@
         android:layout_height="match_parent"
         android:background="@color/white"
         android:orientation="vertical"
-        android:padding="10dp">
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp">
 
         <include
             android:id="@+id/include"
@@ -79,7 +80,6 @@
             android:textSize="20dp" />
 
         <Button
-            android:layout_marginTop="150sp"
             android:id="@+id/vote_button"
             android:layout_width="match_parent"
             android:layout_height="40dp"
@@ -87,7 +87,8 @@
             android:text="Vote"
             android:textAllCaps="false"
             android:textColor="@color/white"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:layout_marginTop="20dp"/>
 
     </LinearLayout>
 </layout>

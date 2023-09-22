@@ -1,7 +1,11 @@
 package com.payouth.hackathon.vote.ui.tab_bar.fragment;
 
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import com.goldze.mvvmhabit.BR;
@@ -13,6 +17,7 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProviders;
 
 import me.goldze.mvvmhabit.base.BaseFragment;
+import me.goldze.mvvmhabit.utils.ToastUtils;
 
 
 public class TabBar2Fragment extends BaseFragment<FragmentTabBar2Binding,TabBar2ViewModel> {
@@ -37,4 +42,29 @@ public class TabBar2Fragment extends BaseFragment<FragmentTabBar2Binding,TabBar2
         return fragment;
     }
 
+    @Override
+    public void initData() {
+        super.initData();
+        binding.voteButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openMail();
+            }
+        });
+    }
+
+    private void openMail() {
+        Uri uri = Uri.parse("mailto:" + "11223344@qq.com");
+            String[] email = {"11223344@qq.co"};
+            Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+            intent.putExtra(Intent.EXTRA_CC, email); // 抄送人
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Vote"); // 主题
+            intent.putExtra(Intent.EXTRA_TEXT, "Hi , \n I would like to vote Sun Xu as the Master.\n thanks"); // 正文
+            Intent chooserIntent = Intent.createChooser(intent, "please select App to vote");
+            if (chooserIntent != null) {
+                startActivity(chooserIntent);
+            } else {
+                ToastUtils.showShort("no mail app");
+            }
+    }
 }
