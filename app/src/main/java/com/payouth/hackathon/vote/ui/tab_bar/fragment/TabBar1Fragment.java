@@ -36,7 +36,7 @@ public class TabBar1Fragment extends BaseFragment<FragmentListBinding, TabBar1Vi
         RecyclerView.LayoutManager layoutManager;
         layoutManager = demoConfiguration.getLayoutManager();
         mAdapter = new CardAdapter();
-        mAdapter.setType(2);
+        mAdapter.setType(0);
         if (demoConfiguration.getItemDecoration() != null) {
             binding.shimmerRecyclerView.addItemDecoration(demoConfiguration.getItemDecoration());
         }
@@ -59,10 +59,10 @@ public class TabBar1Fragment extends BaseFragment<FragmentListBinding, TabBar1Vi
 
     private void loadCards() {
 
-        int type = 2;
+        int type = 0;
 
         mAdapter.setCards(BaseUtils.getCards(getResources(), type));
-//        binding.shimmerRecyclerView.hideShimmerAdapter();
+        binding.shimmerRecyclerView.hideShimmerAdapter();
 
     }
 

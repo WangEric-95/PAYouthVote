@@ -7,11 +7,14 @@ public class ItemCard {
     private String mThumbnailUrl;
     private String mSummaryText;
 
-    public ItemCard(String mTitle, String mDescription, String mThumbnailUrl, String mSummaryText) {
+    private int mImageRecourse;
+
+    public ItemCard(String mTitle, String mDescription, String mThumbnailUrl, String mSummaryText, int mImageRecourse) {
         this.mTitle = mTitle;
         this.mDescription = mDescription;
         this.mThumbnailUrl = mThumbnailUrl;
         this.mSummaryText = mSummaryText;
+        this.mImageRecourse = mImageRecourse;
     }
 
     public String getTitle() {
@@ -28,6 +31,10 @@ public class ItemCard {
 
     public String getSummaryText() {
         return mSummaryText;
+    }
+
+    public int getImageRecourse() {
+        return mImageRecourse;
     }
 
 }

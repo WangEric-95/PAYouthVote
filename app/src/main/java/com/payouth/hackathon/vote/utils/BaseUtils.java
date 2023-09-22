@@ -24,32 +24,44 @@ public class BaseUtils {
         String image = resources.getString(R.string.ndtv_image_url);
         String desc = resources.getString(R.string.ndtv_subtext);
         String summary = resources.getString(R.string.ndtv_summarytext);
+        int picture = R.mipmap.a1;
 
-        ItemCard ndtvCard = new ItemCard(title, desc, image, summary);
+        ItemCard ndtvCard = new ItemCard(title, desc, image, summary,picture);
 
         title = resources.getString(R.string.op_titletext);
         image = resources.getString(R.string.op_image_url);
         desc = resources.getString(R.string.op_subtext);
         summary = resources.getString(R.string.op_summarytext);
+        picture = R.mipmap.a2;
 
-        ItemCard opCard = new ItemCard(title, desc, image, summary);
+        ItemCard opCard = new ItemCard(title, desc, image, summary, picture);
 
 
         title = resources.getString(R.string.got_titletext);
         image = resources.getString(R.string.got_image_url);
         desc = resources.getString(R.string.got_subtext);
         summary = resources.getString(R.string.got_summarytext);
+        picture = R.mipmap.a3;
 
-        ItemCard gotCard = new ItemCard(title, desc, image, summary);
+        ItemCard gotCard = new ItemCard(title, desc, image, summary, picture);
 
         title = resources.getString(R.string.jet_titletext);
         image = resources.getString(R.string.jet_image_url);
         desc = resources.getString(R.string.jet_subtext);
         summary = resources.getString(R.string.jet_summarytext);
+        picture = R.mipmap.a4;
 
-        ItemCard jetCard = new ItemCard(title, desc, image, summary);
+        ItemCard jetCard = new ItemCard(title, desc, image, summary, picture);
 
-        return new ItemCard[]{ndtvCard, opCard, gotCard, jetCard};
+        title = resources.getString(R.string.a_titletext);
+        image = resources.getString(R.string.a_image_url);
+        desc = resources.getString(R.string.a_subtext);
+        summary = resources.getString(R.string.a_summarytext);
+        picture = R.mipmap.a5;
+
+        ItemCard aCard = new ItemCard(title, desc, image, summary, picture);
+
+        return new ItemCard[]{ndtvCard, opCard, gotCard, jetCard, aCard};
 
     }
 
@@ -59,8 +71,9 @@ public class BaseUtils {
         String image = resources.getString(R.string.on7_image_url);
         String desc = resources.getString(R.string.on7_subtext);
         String summary = resources.getString(R.string.on7_summarytext);
+        int picture = R.mipmap.a1;
 
-        ItemCard on7 = new ItemCard(title, desc, image, summary);
+        ItemCard on7 = new ItemCard(title, desc, image, summary, picture);
 
 
         title = resources.getString(R.string.note5_titletext);
@@ -68,21 +81,21 @@ public class BaseUtils {
         desc = resources.getString(R.string.note5_subtext);
         summary = resources.getString(R.string.note5_summarytext);
 
-        ItemCard note5 = new ItemCard(title, desc, image, summary);
+        ItemCard note5 = new ItemCard(title, desc, image, summary, picture);
 
         title = resources.getString(R.string.pix_titletext);
         image = resources.getString(R.string.pix_image_url);
         desc = resources.getString(R.string.pix_subtext);
         summary = resources.getString(R.string.pix_summarytext);
 
-        ItemCard pixel = new ItemCard(title, desc, image, summary);
+        ItemCard pixel = new ItemCard(title, desc, image, summary, picture);
 
         title = resources.getString(R.string.i6_titletext);
         image = resources.getString(R.string.i6_image_url);
         desc = resources.getString(R.string.i6_subtext);
         summary = resources.getString(R.string.i6_summarytext);
 
-        ItemCard iphone6 = new ItemCard(title, desc, image, summary);
+        ItemCard iphone6 = new ItemCard(title, desc, image, summary, picture);
 
 
         title = resources.getString(R.string.moto_titletext);
@@ -90,7 +103,7 @@ public class BaseUtils {
         desc = resources.getString(R.string.moto_subtext);
         summary = resources.getString(R.string.moto_summarytext);
 
-        ItemCard moto = new ItemCard(title, desc, image, summary);
+        ItemCard moto = new ItemCard(title, desc, image, summary, picture);
 
 
         title = resources.getString(R.string.s7_titletext);
@@ -98,7 +111,7 @@ public class BaseUtils {
         desc = resources.getString(R.string.s7_subtext);
         summary = resources.getString(R.string.s7_summarytext);
 
-        ItemCard s7 = new ItemCard(title, desc, image, summary);
+        ItemCard s7 = new ItemCard(title, desc, image, summary, picture);
 
         return new ItemCard[]{on7, note5, pixel, iphone6, s7, moto};
 
@@ -132,7 +145,7 @@ public class BaseUtils {
                 demoConfiguration = new DemoConfiguration();
                 demoConfiguration.setStyleResource(R.style.AppThemeGrid);
                 demoConfiguration.setLayoutResource(R.layout.activity_grid);
-                demoConfiguration.setLayoutManager(new GridLayoutManager(context, 2));
+                demoConfiguration.setLayoutManager(new LinearLayoutManager(context));
                 demoConfiguration.setTitleResource(R.string.ab_grid_title);
                 break;
             case TYPE_SECOND_LIST:
