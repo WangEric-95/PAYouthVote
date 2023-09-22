@@ -7,10 +7,10 @@ import com.payouth.hackathon.vote.data.DemoRepository;
 import com.payouth.hackathon.vote.ui.login.LoginActivityViewModel;
 import com.payouth.hackathon.vote.ui.login.LoginViewModel;
 import com.payouth.hackathon.vote.ui.network.NetWorkViewModel;
-import com.payouth.hackathon.vote.ui.register.RegisterFragment;
 import com.payouth.hackathon.vote.ui.register.RegisterFragmentViewModel;
+import com.payouth.hackathon.vote.ui.tab_bar.fragment.SettingsViewModel;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar1ViewModel;
-import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar2ViewModel;
+import com.payouth.hackathon.vote.ui.webview.WebViewViewModel;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.VisibleForTesting;
@@ -60,8 +60,10 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new RegisterFragmentViewModel(mApplication, mRepository);
         } else if (modelClass.isAssignableFrom(TabBar1ViewModel.class)){
             return (T) new TabBar1ViewModel(mApplication,mRepository);
-        } else if (modelClass.isAssignableFrom(TabBar2ViewModel.class)){
-            return (T) new TabBar2ViewModel(mApplication,mRepository);
+        } else if (modelClass.isAssignableFrom(SettingsViewModel.class)){
+            return (T) new SettingsViewModel(mApplication,mRepository);
+        } else if (modelClass.isAssignableFrom(WebViewViewModel.class)){
+            return (T) new WebViewViewModel(mApplication,mRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }

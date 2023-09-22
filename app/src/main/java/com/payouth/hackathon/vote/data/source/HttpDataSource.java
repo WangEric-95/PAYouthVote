@@ -1,6 +1,9 @@
 package com.payouth.hackathon.vote.data.source;
 
 import com.payouth.hackathon.vote.entity.DemoEntity;
+import com.payouth.hackathon.vote.models.SettingMenuItem;
+
+import java.util.ArrayList;
 
 import io.reactivex.Observable;
 import me.goldze.mvvmhabit.http.BaseResponse;
@@ -22,4 +25,5 @@ public interface HttpDataSource {
     Observable<BaseResponse<DemoEntity>> demoPost(String catalog);
 
 
+    Observable<ArrayList<SettingMenuItem>> getSettingMenus();
 }

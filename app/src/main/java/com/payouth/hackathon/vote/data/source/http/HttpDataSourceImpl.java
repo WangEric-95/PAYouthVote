@@ -3,6 +3,7 @@ package com.payouth.hackathon.vote.data.source.http;
 import com.payouth.hackathon.vote.data.source.HttpDataSource;
 import com.payouth.hackathon.vote.data.source.http.service.DemoApiService;
 import com.payouth.hackathon.vote.entity.DemoEntity;
+import com.payouth.hackathon.vote.models.SettingMenuItem;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -77,5 +78,10 @@ public class HttpDataSourceImpl implements HttpDataSource {
     @Override
     public Observable<BaseResponse<DemoEntity>> demoPost(String catalog) {
         return apiService.demoPost(catalog);
+    }
+
+    @Override
+    public Observable<ArrayList<SettingMenuItem>> getSettingMenus() {
+        return null;
     }
 }

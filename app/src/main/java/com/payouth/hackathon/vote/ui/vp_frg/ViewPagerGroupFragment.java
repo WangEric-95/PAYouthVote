@@ -3,7 +3,7 @@ package com.payouth.hackathon.vote.ui.vp_frg;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar1Fragment;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar2Fragment;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar3Fragment;
-import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar4Fragment;
+import com.payouth.hackathon.vote.ui.tab_bar.fragment.SettingsFragment;
 import com.payouth.hackathon.vote.ui.base.fragment.BasePagerFragment;
 
 import java.util.ArrayList;
@@ -24,7 +24,7 @@ public class ViewPagerGroupFragment extends BasePagerFragment {
         list.add(new TabBar1Fragment());
         list.add(new TabBar2Fragment());
         list.add(new TabBar3Fragment());
-        list.add(new TabBar4Fragment());
+        list.add(new SettingsFragment());
         return list;
     }
 

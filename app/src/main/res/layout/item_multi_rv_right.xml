@@ -3,11 +3,11 @@
 
     <data>
 
-        <import type="com.payouth.hackathon.vote.ui.rv_multi.MultiRecycleRightItemViewModel" />
+        <import type="com.payouth.hackathon.vote.ui.tab_bar.fragment.MultiRecycleRightItemViewModel" />
 
         <variable
             name="viewModel"
-            type="com.payouth.hackathon.vote.ui.rv_multi.MultiRecycleRightItemViewModel" />
+            type="com.payouth.hackathon.vote.ui.tab_bar.fragment.MultiRecycleRightItemViewModel" />
 
     </data>
 
@@ -15,17 +15,27 @@
         xmlns:binding="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#909090"
-        android:gravity="right"
-        android:orientation="vertical"
+        android:background="#ffffff"
+        android:orientation="horizontal"
         android:padding="10dp"
-        binding:onClickCommand="@{viewModel.itemClick}">
+        binding:onClickCommand="@{viewModel.itemClick}"
+        android:gravity="center_vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@{viewModel.text}"
-            android:textColor="@color/textColor" />
+            android:textColor="@color/text_grey"
+            android:layout_weight="1"
+            android:paddingLeft="10dp"/>
+
+        <ImageView
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:src="@mipmap/youjiantoucu"
+            android:layout_marginRight="10dp">
+
+        </ImageView>
 
     </LinearLayout>
 </layout>

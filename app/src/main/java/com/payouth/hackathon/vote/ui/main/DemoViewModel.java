@@ -8,7 +8,6 @@ import com.payouth.hackathon.vote.ui.tab_bar.activity.TabBarActivity;
 import com.payouth.hackathon.vote.ui.vp_frg.ViewPagerGroupFragment;
 import com.payouth.hackathon.vote.entity.FormEntity;
 import com.payouth.hackathon.vote.ui.form.FormFragment;
-import com.payouth.hackathon.vote.ui.rv_multi.MultiRecycleViewFragment;
 import com.payouth.hackathon.vote.ui.viewpager.activity.ViewPagerActivity;
 
 import androidx.annotation.NonNull;
@@ -36,13 +35,6 @@ public class DemoViewModel extends BaseViewModel {
         @Override
         public void call() {
             startContainerActivity(NetWorkFragment.class.getCanonicalName());
-        }
-    });
-    //RecycleView多布局
-    public BindingCommand rvMultiClick = new BindingCommand(new BindingAction() {
-        @Override
-        public void call() {
-            startContainerActivity(MultiRecycleViewFragment.class.getCanonicalName());
         }
     });
     //进入TabBarActivity

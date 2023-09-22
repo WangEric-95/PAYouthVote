@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.payouth.hackathon.vote.ui.webview.WebViewViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:binding="http://schemas.android.com/apk/res-auto">
+
+
+        <Button
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@mipmap/back"
+            android:paddingRight="20dp"
+            android:layout_marginLeft="15dp"
+            android:id="@+id/test"
+            android:visibility="visible"
+            android:padding="10dp"/>
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/web_view"/>
+
+
+    </FrameLayout>
+</layout>

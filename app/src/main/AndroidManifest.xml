@@ -19,7 +19,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="com.payouth.hackathon.vote.ui.login.LoginActivity"
+        <activity
+            android:name="com.payouth.hackathon.vote.ui.webview.VoteWebViewActivity"
+            android:exported="false"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.payouth.hackathon.vote.ui.login.LoginActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -27,9 +32,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.payouth.hackathon.vote.ui.main.DemoActivity"></activity>
-        <activity android:name="com.payouth.hackathon.vote.ui.tab_bar.activity.TabBarActivity"></activity>
-        <activity android:name="com.payouth.hackathon.vote.ui.viewpager.activity.ViewPagerActivity"></activity>
+        <activity android:name="com.payouth.hackathon.vote.ui.main.DemoActivity" />
+        <activity android:name="com.payouth.hackathon.vote.ui.tab_bar.activity.TabBarActivity" />
+        <activity android:name="com.payouth.hackathon.vote.ui.viewpager.activity.ViewPagerActivity" />
     </application>
 
 </manifest>

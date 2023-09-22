@@ -3,9 +3,7 @@ package com.payouth.hackathon.vote.ui.tab_bar.activity;
 import android.os.Bundle;
 
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar1Fragment;
-import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar2Fragment;
-import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar3Fragment;
-import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar4Fragment;
+import com.payouth.hackathon.vote.ui.tab_bar.fragment.SettingsFragment;
 import com.goldze.mvvmhabit.BR;
 import com.goldze.mvvmhabit.R;
 import com.goldze.mvvmhabit.databinding.ActivityTabBarBinding;
@@ -50,10 +48,8 @@ public class TabBarActivity extends BaseActivity<ActivityTabBarBinding, BaseView
 
     private void initFragment() {
         mFragments = new ArrayList<>();
-        mFragments.add(new TabBar1Fragment());
-//        mFragments.add(new TabBar2Fragment());
-//        mFragments.add(new TabBar3Fragment());
-        mFragments.add(new TabBar4Fragment());
+        mFragments.add(TabBar1Fragment.newInstance());
+        mFragments.add(SettingsFragment.newInstance());
         //默认选中第一个
         commitAllowingStateLoss(0);
     }
@@ -61,8 +57,6 @@ public class TabBarActivity extends BaseActivity<ActivityTabBarBinding, BaseView
     private void initBottomTab() {
         NavigationController navigationController = binding.pagerBottomTab.material()
                 .addItem(R.mipmap.yingyong, "home")
-//                .addItem(R.mipmap.huanzhe, "工作")
-//                .addItem(R.mipmap.xiaoxi_select, "消息")
                 .addItem(R.mipmap.wode_select, "settings")
                 .setDefaultColor(ContextCompat.getColor(this, R.color.textColorVice))
                 .build();
