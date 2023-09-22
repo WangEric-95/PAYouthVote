@@ -1,6 +1,8 @@
 package com.payouth.hackathon.vote.adapters;
 
+import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,15 +20,29 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
     private ItemCard[] mCards = new ItemCard[0];
     private int mType = BaseUtils.TYPE_LIST;
 
+    private OnItemClickListener mOnItemClickListener;
+
     @Override
     public ItemHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         return ItemHolder.newInstance(parent, mType);
     }
 
-    @Override
-    public void onBindViewHolder(ItemHolder holder, int position) {
 
+    @Override
+    public void onBindViewHolder(ItemHolder holder, final int position) {
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (mOnItemClickListener != null) {
+                    mOnItemClickListener.onItemClickListener(view, position);
+                }
+            }
+        });
         holder.bind(mCards[position]);
+    }
+
+    public interface OnItemClickListener {
+        void onItemClickListener(View view, int position);
     }
 
     @Override
@@ -44,5 +60,9 @@ public class CardAdapter extends RecyclerView.Adapter<ItemHolder> {
 
     public void setType(int type) {
         this.mType = type;
+    }
+
+    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
+       this.mOnItemClickListener = onItemClickListener;
     }
 }
