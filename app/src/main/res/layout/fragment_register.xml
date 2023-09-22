@@ -26,7 +26,7 @@
             android:text="Enter your personal details for authentication"
             android:textColor="@color/text_grey"
             android:textSize="22dp"
-            android:layout_marginTop="30dp"></TextView>
+            android:layout_marginTop="25dp"></TextView>
 
 
         <LinearLayout
@@ -38,13 +38,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/login_userID">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.idno}">
+                    android:text="@={viewModel.idno}"
+                    android:inputType="number">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -52,7 +53,7 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/login_user_name">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -66,13 +67,14 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/login_mail_address">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.mail}">
+                    android:text="@={viewModel.mail}"
+                    android:inputType="textEmailAddress">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
@@ -80,49 +82,33 @@
             <com.google.android.material.textfield.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:hint="@string/login_pwd">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="@={viewModel.password}">
+                    android:text="@={viewModel.password}"
+                    android:inputType="textPassword">
 
                 </com.google.android.material.textfield.TextInputEditText>
             </com.google.android.material.textfield.TextInputLayout>
 
-<!--            <EditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="match_parent"-->
-<!--                android:background="@null"-->
-<!--                android:hint="@string/login_userID"-->
-<!--                android:text="@={viewModel.userName}"-->
-<!--                android:textColor="@color/textColor"-->
-<!--                android:textColorHint="@color/textColorHint"-->
-<!--                android:textSize="16sp"-->
-<!--                android:layout_margin="10dp"/>-->
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:hint="@string/login_pwd_confirm">
 
-<!--            <EditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@null"-->
-<!--                android:hint="@string/login_userID"-->
-<!--                android:text="@={viewModel.idno}"-->
-<!--                android:textColor="@color/textColor"-->
-<!--                android:textColorHint="@color/textColorHint"-->
-<!--                android:textSize="16sp"-->
-<!--                android:layout_margin="10dp"/>-->
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@={viewModel.passwordConfirm}"
+                    android:inputType="textPassword">
 
-<!--            <EditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:background="@null"-->
-<!--                android:hint="@string/login_pwd"-->
-<!--                android:text="@={viewModel.password}"-->
-<!--                android:textColor="@color/textColor"-->
-<!--                android:textColorHint="@color/textColorHint"-->
-<!--                android:textSize="16sp"-->
-<!--                android:layout_margin="10dp"/>-->
+                </com.google.android.material.textfield.TextInputEditText>
+            </com.google.android.material.textfield.TextInputLayout>
+
         </LinearLayout>
 
         <LinearLayout

@@ -5,6 +5,7 @@
     <string name="login_pwd">Please input your password</string>
     <string name="login_forgot_pwd">forgot password</string>
     <string name="login_registration">register</string>
+    <string name="login_pwd_confirm">Confirm your password</string>
     <string name="list_demo">List Demo</string>
     <string name="grid_demo">Grid Demo</string>
     <string name="empty_demo">No Data Demo</string>

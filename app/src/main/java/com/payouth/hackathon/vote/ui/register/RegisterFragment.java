@@ -46,14 +46,6 @@ public class RegisterFragment extends BaseFragment<FragmentRegisterBinding, Regi
     public void initViewObservable() {
         super.initViewObservable();
 
-        viewModel.uc.pRegisterClickEvent.observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean aBoolean) {
-                ToastUtils.showShort("register done , you can login now");
-                getActivity().getSupportFragmentManager().popBackStack();
-            }
-        });
-
         viewModel.uc.pBackButtonClickEvent.observe(this, new Observer<Boolean>() {
             @Override
             public void onChanged(Boolean aBoolean) {

@@ -78,4 +78,10 @@ public class LoginFragment extends BaseFragment<FragmentLoginBinding, LoginViewM
             }
         });
     }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        viewModel.updateUserName();
+    }
 }

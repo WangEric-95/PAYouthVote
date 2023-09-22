@@ -51,7 +51,7 @@ public class DemoRepository extends BaseModel implements HttpDataSource, LocalDa
 
     @Override
     public Observable<Object> register() {
-        return mHttpDataSource.login();
+        return mHttpDataSource.register();
     }
 
     @Override

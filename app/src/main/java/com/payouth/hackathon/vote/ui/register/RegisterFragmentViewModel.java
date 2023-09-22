@@ -25,6 +25,7 @@ public class RegisterFragmentViewModel extends ToolbarViewModel<DemoRepository> 
     public ObservableField<String> userName = new ObservableField<>("");
 
     public ObservableField<String> password = new ObservableField<>("");
+    public ObservableField<String> passwordConfirm = new ObservableField<>("");
     public ObservableField<String> idno = new ObservableField<>("");
     public ObservableField<String> mail = new ObservableField<>("");
 
@@ -61,18 +62,27 @@ public class RegisterFragmentViewModel extends ToolbarViewModel<DemoRepository> 
             ToastUtils.showShort("Please input a ID card number！");
             return;
         }
+        if (TextUtils.isEmpty(userName.get())) {
+            ToastUtils.showShort("Please input you userName！");
+            return;
+        }
+        if (TextUtils.isEmpty(mail.get())) {
+            ToastUtils.showShort("Please input mail address for vote purpose！");
+            return;
+        }
         if (TextUtils.isEmpty(password.get())) {
             ToastUtils.showShort("Please input password！");
             return;
         }
-        if (TextUtils.isEmpty(mail.get())) {
-            ToastUtils.showShort("Please input a ID card number！");
+        if (TextUtils.isEmpty(passwordConfirm.get())) {
+            ToastUtils.showShort("Please confirm your password！");
             return;
         }
-        if (TextUtils.isEmpty(userName.get())) {
-            ToastUtils.showShort("Please input password！");
+        if (!passwordConfirm.get().equals(password.get())) {
+            ToastUtils.showShort("the second time password what input not matched");
             return;
         }
+
         addSubscribe(model.register()
                 .compose(RxUtils.schedulersTransformer())
                 .doOnSubscribe(new Consumer<Disposable>() {
@@ -85,7 +95,7 @@ public class RegisterFragmentViewModel extends ToolbarViewModel<DemoRepository> 
                     @Override
                     public void accept(Object o) throws Exception {
                         dismissDialog();
-                        ToastUtils.showLong("Register successfully you can do login now");
+                        ToastUtils.showLong("Congratulations！ you can login and voting now");
                         model.saveUserName(userName.get());
                         backOnClick.execute();
                     }

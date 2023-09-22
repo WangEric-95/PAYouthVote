@@ -45,7 +45,6 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
 
     public LoginViewModel(@NonNull Application application, DemoRepository repository) {
         super(application, repository);
-        userName.set(model.getUserName());
     }
 
     public BindingCommand clearUserNameOnClickCommand = new BindingCommand(new BindingAction() {
@@ -88,12 +87,8 @@ public class LoginViewModel extends BaseViewModel<DemoRepository> {
         }
     });
 
-    private void register() {
-        ToastUtils.showShort("register");
-    }
-
-    private void forgetPassword() {
-        ToastUtils.showShort("forgetPassword");
+    public void updateUserName() {
+        this.userName.set(model.getUserName());
     }
 
     private void login() {
