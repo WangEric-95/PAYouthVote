@@ -10,6 +10,7 @@ import com.payouth.hackathon.vote.ui.network.NetWorkViewModel;
 import com.payouth.hackathon.vote.ui.register.RegisterFragmentViewModel;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.SettingsViewModel;
 import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar1ViewModel;
+import com.payouth.hackathon.vote.ui.tab_bar.fragment.TabBar2ViewModel;
 import com.payouth.hackathon.vote.ui.webview.WebViewViewModel;
 
 import androidx.annotation.NonNull;
@@ -64,6 +65,8 @@ public class AppViewModelFactory extends ViewModelProvider.NewInstanceFactory {
             return (T) new SettingsViewModel(mApplication,mRepository);
         } else if (modelClass.isAssignableFrom(WebViewViewModel.class)){
             return (T) new WebViewViewModel(mApplication,mRepository);
+        } else if (modelClass.isAssignableFrom(TabBar2ViewModel.class)){
+            return (T) new TabBar2ViewModel(mApplication,mRepository);
         }
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
     }
