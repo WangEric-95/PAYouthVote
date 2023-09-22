@@ -1,10 +1,15 @@
 <resources>
     <string name="app_name">Vote</string>
-    <string name="login_userID">ID Crad No.</string>
-    <string name="login_name">User name</string>
-    <string name="login_pwd">Password</string>
+    <string name="login_userID">Please input your ID no</string>
+    <string name="login_name">Please input your name</string>
+    <string name="login_pwd">Please input your password</string>
     <string name="login_forgot_pwd">forgot password</string>
     <string name="login_registration">register</string>
+    <string name="list_demo">List Demo</string>
+    <string name="grid_demo">Grid Demo</string>
+    <string name="empty_demo">No Data Demo</string>
+    <string name="second_list_demo">Second List Demo</string>
+    <string name="second_grid_demo">Second Grid Demo</string>
     <string name="login_user_name">User name</string>
     <string name="login_mail_address">Mail address</string>
 </resources>

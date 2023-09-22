@@ -51,8 +51,8 @@ public class TabBarActivity extends BaseActivity<ActivityTabBarBinding, BaseView
     private void initFragment() {
         mFragments = new ArrayList<>();
         mFragments.add(new TabBar1Fragment());
-        mFragments.add(new TabBar2Fragment());
-        mFragments.add(new TabBar3Fragment());
+//        mFragments.add(new TabBar2Fragment());
+//        mFragments.add(new TabBar3Fragment());
         mFragments.add(new TabBar4Fragment());
         //默认选中第一个
         commitAllowingStateLoss(0);
@@ -60,10 +60,10 @@ public class TabBarActivity extends BaseActivity<ActivityTabBarBinding, BaseView
 
     private void initBottomTab() {
         NavigationController navigationController = binding.pagerBottomTab.material()
-                .addItem(R.mipmap.yingyong, "应用")
-                .addItem(R.mipmap.huanzhe, "工作")
-                .addItem(R.mipmap.xiaoxi_select, "消息")
-                .addItem(R.mipmap.wode_select, "我的")
+                .addItem(R.mipmap.yingyong, "home")
+//                .addItem(R.mipmap.huanzhe, "工作")
+//                .addItem(R.mipmap.xiaoxi_select, "消息")
+                .addItem(R.mipmap.wode_select, "settings")
                 .setDefaultColor(ContextCompat.getColor(this, R.color.textColorVice))
                 .build();
         //底部按钮的点击事件监听
